@@ -1,11 +1,9 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react'
 
 type LayoutProps = {
   children?: ReactNode
 }
 
 export const Layout = ({ children }: LayoutProps) => {
-  return (
-    <main>{children}</main>
-  )
+  return <main>{children}</main>
 }
