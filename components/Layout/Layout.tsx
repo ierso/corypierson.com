@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { About } from '../About'
 
 type LayoutProps = {
   children?: ReactNode
@@ -8,14 +9,12 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <main className="max-w-[75rem] mx-auto border">
       <div className="grid grid-cols-12">
-        <aside className="col-span-4">
-          <h1>Cory Pierson</h1>
-          <p>
-            I build, maintain, and troubleshoot all things web. I currently work
-            at JK Design as a Senior Front-End Developer.
-          </p>
+        <aside className="flex col-span-4">
+          <About />
         </aside>
-        <section className="col-span-8">{children}</section>
+        <section className="col-span-8">
+          <div className="p-8">{children}</div>
+        </section>
       </div>
     </main>
   )
