@@ -1,6 +1,6 @@
 export const About = () => {
   return (
-    <div className="p-10 place-self-center">
+    <div className="sticky top-0 p-10 place-self-center">
       <h1 className="text-3xl font-bold tracking-tight text-black md:text-5xl">
         Cory Pierson
       </h1>
