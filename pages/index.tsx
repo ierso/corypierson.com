@@ -1,13 +1,19 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <Head>
-        <title>Cory Pierson</title>
-      </Head>
-      <h1 className="text-3xl font-bold underline">Cory Pierson</h1>
+    <div
+      className="grid gap-4 grid-flow-dense auto-rows-[minmax(150px,_3fr)]"
+      style={{ gridTemplateColumns: 'repeat(auto-fill,minmax(300px,1fr))' }}
+    >
+      <div className="bg-red-500 [&:nth-of-type(2n+2)]:row-span-2	"></div>
+      <div className="bg-red-500 [&:nth-of-type(2n+2)]:row-span-2	"></div>
+      <div className="bg-red-500 [&:nth-of-type(2n+2)]:row-span-2	"></div>
+      <div className="bg-red-500 [&:nth-of-type(2n+2)]:row-span-2	"></div>
+      <div className="bg-red-500 [&:nth-of-type(2n+2)]:row-span-2	"></div>
+      <div className="bg-red-500 [&:nth-of-type(2n+2)]:row-span-2	"></div>
+      <div className="bg-red-500 [&:nth-of-type(2n+2)]:row-span-2	"></div>
+      <div className="bg-red-500 [&:nth-of-type(2n+2)]:row-span-2	"></div>
     </div>
   )
 }
