@@ -1,9 +1,9 @@
-interface Props {
+type WorkInfoProps = {
   title: string
   description: string
 }
 
-export const WorkInfo = ({ title, description }: Props) => {
+export const WorkInfo = ({ title, description }: WorkInfoProps) => {
   return (
     <div className="p-6 text-white place-self-end">
       <h3 className="text-lg font-bold">{title}</h3>
