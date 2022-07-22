@@ -3,7 +3,7 @@ type WorkInfoProps = {
   description: string
 }
 
-export const WorkInfo = ({ title, description }: WorkInfoProps) => {
+export function WorkInfo({ title, description }: WorkInfoProps) {
   return (
     <div className="p-6 text-white place-self-end">
       <h3 className="text-lg font-bold">{title}</h3>
