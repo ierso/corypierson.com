@@ -11,7 +11,7 @@ export default function Home({ allWork }: HomeProps) {
   return (
     <>
       <h2 className="text-2xl font-bold">Client work</h2>
-      {allWork.length > 0 && <Work work={allWork} />}
+      {allWork.length > 0 && <Work allWork={allWork} />}
     </>
   )
 }
