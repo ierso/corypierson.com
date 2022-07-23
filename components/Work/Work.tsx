@@ -1,8 +1,9 @@
 import { WorkInfo } from './WorkInfo'
+import { WorkType } from '@lib/types'
 
-// type Work = {
-//   allWork:
-// }
+type WorkProps = {
+  work: WorkType[]
+}
 
 type WorkInfoProps = {
   _id: string
@@ -11,10 +12,10 @@ type WorkInfoProps = {
   description: string
 }
 
-export function Work({ allWork }: { allWork: [] }) {
+export function Work({ work }: WorkProps) {
   return (
     <div className="grid gap-4 grid-flow-dense mt-6 auto-rows-[minmax(200px,_3fr)] grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]">
-      {allWork.map((work: WorkInfoProps) => {
+      {work.map((work: WorkInfoProps) => {
         const { _id, title, url, description } = work
         return (
           <WorkInfo

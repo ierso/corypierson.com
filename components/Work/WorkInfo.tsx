@@ -1,4 +1,10 @@
-export function WorkInfo({ title = '', description = '', url = '' }) {
+type WorkInfoProps = {
+  title: string
+  description: string
+  url: string
+}
+
+export function WorkInfo({ title, description, url }: WorkInfoProps) {
   return (
     <a
       href={url}

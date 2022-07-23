@@ -1,21 +1,24 @@
-import { InferGetStaticPropsType } from 'next'
 import { Work } from '@components/Work'
 import { workQuery } from '@lib/queries'
 import { getClient, overlayDrafts } from '@lib/sanity-server'
+import { WorkType } from '@lib/types'
 
-export default function Home({
-  allWork,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+type HomeProps = {
+  allWork: WorkType[]
+}
+
+export default function Home({ allWork }: HomeProps) {
   return (
     <>
       <h2 className="text-2xl font-bold">Client work</h2>
-      <Work allWork={allWork} />
+      {allWork.length > 0 && <Work work={allWork} />}
     </>
   )
 }
 
 export async function getStaticProps({ preview = false }) {
   const allWork = overlayDrafts(await getClient(preview).fetch(workQuery))
+
   return {
     props: { allWork },
   }
