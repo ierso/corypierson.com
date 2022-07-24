@@ -33,8 +33,9 @@ function WorkInfo({ title, description, url }: WorkInfoProps) {
     <a
       href={url}
       target="_blank"
-      className="bg-red-500 flex [&:nth-of-type(2n+2)]:row-span-2"
-      rel="noreferrer"
+      className="bg-red-500 flex [&:nth-of-type(2n+2)]:row-span-2 rounded-md"
+      rel="noopener noreferrer"
+      aria-label={title}
     >
       <div className="p-6 text-white place-self-end">
         <h3 className="text-lg font-bold">{title}</h3>
