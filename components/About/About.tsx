@@ -1,7 +1,7 @@
 export function About() {
   return (
     <div className="p-10">
-      <h1 className="text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
+      <h1 className="text-3xl font-bold tracking-tight text-black lg:text-5xl dark:text-white">
         Cory Pierson
       </h1>
       <p className="mt-4 text-gray-600 dark:text-gray-400">
