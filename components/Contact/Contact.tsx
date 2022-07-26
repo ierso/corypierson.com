@@ -17,6 +17,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(function Input(
       <textarea
         {...(props as JSX.IntrinsicElements['textarea'])}
         className={className}
+        ref={ref}
       />
     )
   }
@@ -38,7 +39,13 @@ type FormValues = {
 
 export function Contact() {
   const { register, handleSubmit } = useForm<FormValues>()
-  const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data)
+
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    fetch('/api/mail', {
+      method: 'post',
+      body: JSON.stringify(data),
+    })
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -53,7 +60,7 @@ export function Contact() {
           <Input
             type="textarea"
             rows={4}
-            {...register('name')}
+            {...register('message')}
             placeholder="Write something..."
           />
         </div>
