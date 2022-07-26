@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import { About } from '@components/About'
+import { Contact } from '@components/Contact'
 import { ThemeToggle } from '@components/ThemeToggle'
 
 type LayoutProps = {
@@ -19,7 +20,12 @@ export function Layout({ children }: LayoutProps) {
           <About />
         </aside>
         <section className="col-span-7 lg:col-span-8">
-          <div className="px-8 py-10">{children}</div>
+          <div className="px-8 py-10">
+            {children}
+            <div className="mt-10">
+              <Contact />
+            </div>
+          </div>
         </section>
       </div>
     </main>
