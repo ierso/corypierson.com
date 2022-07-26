@@ -9,8 +9,8 @@ type LayoutProps = {
 
 export function Layout({ children }: LayoutProps) {
   return (
-    <main className="max-w-[75rem] mx-auto">
-      <div className="flex p-8">
+    <main className="max-w-[75rem] mx-auto relative">
+      <div className="right-0 flex p-8 pb-0 md:absolute">
         <div className="ml-auto">
           <ThemeToggle />
         </div>
@@ -20,7 +20,7 @@ export function Layout({ children }: LayoutProps) {
           <About />
         </aside>
         <section className="col-span-7 lg:col-span-8">
-          <div className="px-8 py-10">
+          <div className="px-8 py-10 md:mt-20">
             {children}
             <div className="mt-10">
               <Contact />

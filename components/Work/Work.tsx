@@ -5,6 +5,7 @@ type WorkProps = {
 }
 
 export function Work({ allWork }: WorkProps) {
+  console.log(allWork)
   return (
     <div className="grid gap-4 grid-flow-dense mt-6 auto-rows-[minmax(200px,_3fr)] grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]">
       {allWork.map((work) => {

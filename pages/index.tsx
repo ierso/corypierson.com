@@ -18,8 +18,8 @@ export default function Home({ allWork }: HomeProps) {
 
 export async function getStaticProps({ preview = false }) {
   const allWork = overlayDrafts(await getClient(preview).fetch(workQuery))
-
   return {
     props: { allWork },
+    revalidate: 10,
   }
 }
