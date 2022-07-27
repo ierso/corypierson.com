@@ -1,23 +1,28 @@
 import mail from '@sendgrid/mail'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-mail.setApiKey(process.env.SENDGRID_API_KEY)
-
-type Data = {
+type DataProps = {
   status: string
+}
+
+type BodyProps = {
+  name: string
+  email: string
+  message: string
 }
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<DataProps>
 ) {
-  const body = JSON.parse(req.body)
+  const body: BodyProps = JSON.parse(req.body)
+
   const message = `
     Name: ${body.name}\r\n
     Email: ${body.email}\r\n
     Message: ${body.message}
   `
-  const data = {
+  const formData = {
     to: 'coryierso@gmail.com',
     from: 'hello@corypierson.com',
     subject: 'Hello from corypierson.com',
@@ -25,7 +30,9 @@ export default function handler(
     html: message.replace(/\r\n/g, '<br>'),
   }
 
-  mail.send(data)
+  mail.setApiKey(process.env.SENDGRID_API_KEY)
+
+  mail.send(formData)
 
   res.status(200).json({ status: 'Ok' })
 }
