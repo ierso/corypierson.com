@@ -1,4 +1,5 @@
 import React from 'react'
+import clsx from 'clsx'
 
 type InputProps =
   | ({ type: 'textarea' } & JSX.IntrinsicElements['textarea'])
@@ -13,7 +14,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       return (
         <textarea
           {...(props as JSX.IntrinsicElements['textarea'])}
-          className={className}
+          className={clsx('min-h-[100px] max-h-[250px]', className)}
           ref={ref}
         />
       )

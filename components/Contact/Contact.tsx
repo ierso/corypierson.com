@@ -10,7 +10,7 @@ type FormValues = {
 }
 
 export function Contact() {
-  const { register, handleSubmit } = useForm<FormValues>()
+  const { register, handleSubmit, reset } = useForm<FormValues>()
 
   const fetcher = async (formData: FormValues) => {
     return fetch('/api/mail', {
@@ -19,8 +19,8 @@ export function Contact() {
     })
   }
 
-  const onSuccess = () => {
-    console.log('form has submitted')
+  function onSuccess() {
+    reset({ name: '', email: '', message: '' })
   }
 
   const { mutateAsync, isLoading, isError, isSuccess } = useMutation(fetcher, {
