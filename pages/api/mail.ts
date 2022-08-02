@@ -22,6 +22,7 @@ export default function handler(
     Email: ${body.email}\r\n
     Message: ${body.message}
   `
+
   const formData = {
     to: 'coryierso@gmail.com',
     from: 'hello@corypierson.com',

@@ -1,35 +1,7 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
-
-type InputProps =
-  | ({ type: 'textarea' } & JSX.IntrinsicElements['textarea'])
-  | JSX.IntrinsicElements['input']
-
-const Input = React.forwardRef<HTMLInputElement, InputProps>(function Input(
-  props,
-  ref
-) {
-  const className =
-    'block w-full px-4 py-2 text-gray-900 bg-white border border-gray-200 rounded-md dark:border-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-gray-100'
-
-  if (props.type === 'textarea') {
-    return (
-      <textarea
-        {...(props as JSX.IntrinsicElements['textarea'])}
-        className={className}
-        ref={ref}
-      />
-    )
-  }
-
-  return (
-    <input
-      {...(props as JSX.IntrinsicElements['input'])}
-      className={className}
-      ref={ref}
-    />
-  )
-})
+import { Input } from '@components/UI'
+import { useMutation } from '@tanstack/react-query'
 
 type FormValues = {
   name: string
@@ -40,11 +12,23 @@ type FormValues = {
 export function Contact() {
   const { register, handleSubmit } = useForm<FormValues>()
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    fetch('/api/mail', {
+  const fetcher = async (formData: FormValues) => {
+    return fetch('/api/mail', {
       method: 'post',
-      body: JSON.stringify(data),
+      body: JSON.stringify(formData),
     })
+  }
+
+  const onSuccess = () => {
+    console.log('form has submitted')
+  }
+
+  const { mutateAsync, isLoading, isError, isSuccess } = useMutation(fetcher, {
+    onSuccess,
+  })
+
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    mutateAsync(data)
   }
 
   return (
@@ -65,8 +49,11 @@ export function Contact() {
           />
         </div>
         <div className="col-span-2">
-          <input type="submit" />
+          <input type="submit" disabled={isLoading} />
         </div>
+        {isError && <div>Oh Oh.. something went wrong.</div>}
+        {isLoading && <div>Submitting form...</div>}
+        {isSuccess && <div>Thank you for your submission!</div>}
       </div>
     </form>
   )
