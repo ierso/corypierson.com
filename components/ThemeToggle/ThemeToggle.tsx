@@ -20,7 +20,7 @@ export function ThemeToggle() {
         type="button"
         onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
       >
-        Theme toggle
+        Toggle theme
       </button>
     </>
   )
