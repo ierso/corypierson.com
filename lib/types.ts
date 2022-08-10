@@ -3,4 +3,5 @@ export type WorkType = {
   title: string
   url: string
   description: string
+  image: object
 }

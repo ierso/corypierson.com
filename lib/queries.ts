@@ -2,6 +2,7 @@ const workFields = `
   _id,
   title,
   description,
+  image,
   url,
   order
 `
