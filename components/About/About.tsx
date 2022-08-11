@@ -11,6 +11,10 @@ export function About() {
         </span>{' '}
         as a Senior Front-End Developer.
       </p>
+      <ul className="flex gap-2 mt-4">
+        <li>LinkedIn</li>
+        <li>Github</li>
+      </ul>
     </div>
   )
 }

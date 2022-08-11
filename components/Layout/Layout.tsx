@@ -20,7 +20,7 @@ export function Layout({ children }: LayoutProps) {
           <About />
         </aside>
         <section className="col-span-7 lg:col-span-8">
-          <div className="px-8 py-10 md:mt-20">
+          <div className="px-8 pt-10 pb-20 md:mt-20">
             {children}
             <div className="mt-10">
               <Contact />

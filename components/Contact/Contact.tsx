@@ -32,29 +32,45 @@ export function Contact() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="grid grid-cols-2 gap-4">
-        <div className="col-span-1">
-          <Input {...register('name')} placeholder="First Name" />
-        </div>
-        <div className="col-span-1">
-          <Input {...register('email')} type="email" placeholder="Email" />
-        </div>
-        <div className="col-span-2">
-          <Input
-            type="textarea"
-            rows={4}
-            {...register('message')}
-            placeholder="Write something..."
-          />
-        </div>
-        <div className="col-span-2">
-          <input type="submit" disabled={isLoading} />
-        </div>
-        {isError && <div>Oh Oh.. something went wrong.</div>}
-        {isLoading && <div>Submitting form...</div>}
-        {isSuccess && <div>Thank you for your submission!</div>}
+    <>
+      <h2 className="text-2xl font-bold">Contact me</h2>
+      <div className="mt-6">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="col-span-1">
+              <Input
+                {...(register('name'), { required: true })}
+                placeholder="First Name"
+              />
+            </div>
+            <div className="col-span-1">
+              <Input
+                {...(register('email'), { required: true })}
+                type="email"
+                placeholder="Email"
+              />
+            </div>
+            <div className="col-span-2">
+              <Input
+                type="textarea"
+                rows={4}
+                {...(register('message'), { required: true })}
+                placeholder="Write something..."
+              />
+            </div>
+            <div className="col-span-2">
+              <input
+                className="cursor-pointer"
+                type="submit"
+                disabled={isLoading}
+              />
+            </div>
+            {isError && <div>Oh Oh.. something went wrong.</div>}
+            {isLoading && <div>Submitting form...</div>}
+            {isSuccess && <div>Thank you for your submission!</div>}
+          </div>
+        </form>
       </div>
-    </form>
+    </>
   )
 }
