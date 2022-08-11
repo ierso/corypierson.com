@@ -38,23 +38,16 @@ export function Contact() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid grid-cols-2 gap-4">
             <div className="col-span-1">
-              <Input
-                {...(register('name'), { required: true })}
-                placeholder="First Name"
-              />
+              <Input {...register('name')} placeholder="First Name" />
             </div>
             <div className="col-span-1">
-              <Input
-                {...(register('email'), { required: true })}
-                type="email"
-                placeholder="Email"
-              />
+              <Input {...register('email')} type="email" placeholder="Email" />
             </div>
             <div className="col-span-2">
               <Input
                 type="textarea"
                 rows={4}
-                {...(register('message'), { required: true })}
+                {...register('message')}
                 placeholder="Write something..."
               />
             </div>
