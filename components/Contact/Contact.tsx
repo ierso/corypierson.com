@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { Input, TestInput } from '@components/UI'
+import { Input, TextArea } from '@components/UI'
 import { useMutation } from '@tanstack/react-query'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { formSchema } from '@lib/schema'
@@ -45,14 +45,14 @@ export function Contact() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid grid-cols-2 gap-4">
             <div className="col-span-1">
-              <TestInput
+              <Input
                 {...register('name')}
                 placeholder="Name*"
                 error={Boolean(errors?.name)}
               />
             </div>
             <div className="col-span-1">
-              <TestInput
+              <Input
                 {...register('email')}
                 placeholder="Email*"
                 type="email"
@@ -60,11 +60,11 @@ export function Contact() {
               />
             </div>
             <div className="col-span-2">
-              <Input
-                type="textarea"
+              <TextArea
                 rows={4}
                 {...register('message')}
                 placeholder="Write something..."
+                error={Boolean(errors?.message)}
               />
             </div>
             <div className="col-span-2">
