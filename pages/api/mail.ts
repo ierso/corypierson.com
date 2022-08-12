@@ -1,16 +1,10 @@
 import mail from '@sendgrid/mail'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { z } from 'zod'
+import { formSchema } from '@lib/schema'
 
 type DataProps = {
   status: string
 }
-
-const formSchema = z.object({
-  name: z.string(),
-  email: z.string().email(),
-  message: z.string(),
-})
 
 export default function handler(
   req: NextApiRequest,
@@ -29,7 +23,7 @@ export default function handler(
   `
 
   const formData = {
-    to: 'coryierso@gmail.com',
+    to: process.env.MY_EMAIL,
     from: 'hello@corypierson.com',
     subject: 'Hello from corypierson.com',
     text: message,

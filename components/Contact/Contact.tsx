@@ -1,18 +1,25 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { Input } from '@components/UI'
+import { Input, TestInput } from '@components/UI'
 import { useMutation } from '@tanstack/react-query'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { formSchema } from '@lib/schema'
 
-type FormValues = {
+type FormProps = {
   name: string
   email: string
   message: string
 }
 
 export function Contact() {
-  const { register, handleSubmit, reset } = useForm<FormValues>()
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormProps>({ resolver: zodResolver(formSchema) })
 
-  const fetcher = async (formData: FormValues) => {
+  const fetcher = async (formData: FormProps) => {
     return fetch('/api/mail', {
       method: 'post',
       body: JSON.stringify(formData),
@@ -27,7 +34,7 @@ export function Contact() {
     onSuccess,
   })
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  const onSubmit: SubmitHandler<FormProps> = (data) => {
     mutateAsync(data)
   }
 
@@ -38,10 +45,19 @@ export function Contact() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid grid-cols-2 gap-4">
             <div className="col-span-1">
-              <Input {...register('name')} placeholder="First Name" />
+              <TestInput
+                {...register('name')}
+                placeholder="Name*"
+                error={Boolean(errors?.name)}
+              />
             </div>
             <div className="col-span-1">
-              <Input {...register('email')} type="email" placeholder="Email" />
+              <TestInput
+                {...register('email')}
+                placeholder="Email*"
+                type="email"
+                error={Boolean(errors?.email)}
+              />
             </div>
             <div className="col-span-2">
               <Input
