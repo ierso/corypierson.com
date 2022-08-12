@@ -10,6 +10,7 @@ export const previewClient = createClient({
 })
 
 export function overlayDrafts(docs) {
+  console.log('docs', docs)
   const documents = docs || []
   const overlayed = documents.reduce((map, doc) => {
     if (!doc._id) {
