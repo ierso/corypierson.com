@@ -37,8 +37,8 @@ function WorkInfo({ title, description, url, image }: WorkInfoProps) {
     <a
       href={url}
       target="_blank"
-      className="overflow-hidden relative flex [&:nth-of-type(2n+2)]:row-span-2 rounded-md transform sm:hover:scale-[1.01] sm:hover:shadow-sm transition-all"
       rel="noopener noreferrer"
+      className="overflow-hidden relative flex [&:nth-of-type(2n+2)]:row-span-2 rounded-md transform sm:hover:scale-[1.01] sm:hover:shadow-sm transition-all"
       aria-label={title}
     >
       {image && (

@@ -15,6 +15,8 @@ export function About() {
         <li>
           <a
             href="https://www.linkedin.com/in/corypierson/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex text-black dark:text-white w-[18px]"
           >
             <svg
@@ -29,6 +31,8 @@ export function About() {
         <li>
           <a
             href="https://github.com/ierso"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex text-black dark:text-white w-[20px]"
           >
             <svg
