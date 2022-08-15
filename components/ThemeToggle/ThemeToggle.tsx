@@ -7,8 +7,7 @@ function DarkIcon() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
-      width="20"
-      height="auto"
+      className="w-full h-full"
     >
       <path d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z" />
     </svg>
@@ -20,8 +19,7 @@ function LightIcon() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 32 32"
-      width="20"
-      height="auto"
+      className="w-full h-full"
       fill="none"
     >
       <path
@@ -99,13 +97,15 @@ export function ThemeToggle() {
       <button
         className={clsx(
           resolvedTheme === 'dark' ? 'border-white' : 'border-black',
-          'p-2 border rounded-full'
+          'p-2 border rounded-full flex'
         )}
         aria-label="Toggle Dark Mode"
         type="button"
         onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
       >
-        {resolvedTheme === 'dark' ? <LightIcon /> : <DarkIcon />}
+        <span className="w-[20px]">
+          {resolvedTheme === 'dark' ? <LightIcon /> : <DarkIcon />}
+        </span>
       </button>
     </>
   )
