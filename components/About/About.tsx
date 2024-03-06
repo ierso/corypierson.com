@@ -7,9 +7,9 @@ export function About() {
       <p className="mt-4 text-gray-600 dark:text-gray-400">
         I build, maintain, and troubleshoot all things web. I currently work at{' '}
         <span className="font-semibold text-gray-700 dark:text-white">
-          JK Design
+          Fisker Inc.
         </span>{' '}
-        as a Senior Front-End Developer.
+        as a Sr. Software Engineer, Front End.
       </p>
       <ul className="flex gap-3 mt-4">
         <li>
