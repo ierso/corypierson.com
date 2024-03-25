@@ -69,7 +69,7 @@ export function Contact() {
             </div>
             <div className="col-span-2">
               <input
-                className="cursor-pointer"
+                className="underline cursor-pointer"
                 type="submit"
                 disabled={isLoading}
               />
