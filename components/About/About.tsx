@@ -9,7 +9,7 @@ export function About() {
         <span className="font-semibold text-gray-700 dark:text-white">
           Fisker Inc.
         </span>{' '}
-        as a Sr. Software Engineer, Front End.
+        as a Senior Front End Software Engineer.
       </p>
       <ul className="flex gap-3 mt-4">
         <li>
