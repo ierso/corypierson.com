@@ -8,7 +8,7 @@
 ## Run locally
 
 ```bash
-nvm use v16.16.0
+nvm use v20.13.1
 cp .env.local.example .env
 yarn
 yarn dev
