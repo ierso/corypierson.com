@@ -1,9 +1,10 @@
-import React from 'react'
-import { useForm, SubmitHandler } from 'react-hook-form'
 import { Input, TextArea } from '@components/UI'
+import { SubmitHandler, useForm } from 'react-hook-form'
+
+import React from 'react'
+import { formSchema } from '@lib/schema'
 import { useMutation } from '@tanstack/react-query'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { formSchema } from '@lib/schema'
 
 type FormProps = {
   name: string
@@ -69,7 +70,7 @@ export function Contact() {
             </div>
             <div className="col-span-2">
               <input
-                className="underline cursor-pointer"
+                className="ease-out duration-200 h-10 dark:hover:bg-gray-200 hover:bg-gray-700 border-gray-200 text-center dark:text-black dark:bg-white text-white bg-black px-3.5 rounded-lg cursor-pointer"
                 type="submit"
                 disabled={isLoading}
               />
