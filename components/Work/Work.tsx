@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { WorkType } from '@lib/types'
-import { urlFor } from '@lib/sanity'
+import { sanityClient } from '@lib/sanity-server'
+import { useNextSanityImage } from 'next-sanity-image'
 
 type WorkProps = {
   allWork: WorkType[]
@@ -11,6 +12,7 @@ export function Work({ allWork }: WorkProps) {
     <div className="grid gap-4 grid-flow-dense mt-6 auto-rows-[minmax(275px,_3fr)] grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]">
       {allWork.map((work) => {
         const { _id, title, url, description, image } = work
+
         return (
           <WorkInfo
             key={_id}
@@ -25,14 +27,9 @@ export function Work({ allWork }: WorkProps) {
   )
 }
 
-type WorkInfoProps = {
-  title: string
-  description: string
-  url: string
-  image: object
-}
+function WorkInfo({ title, description, url, image }: WorkType) {
+  const sanityImage = useNextSanityImage(sanityClient, image)
 
-function WorkInfo({ title, description, url, image }: WorkInfoProps) {
   return (
     <a
       href={url}
@@ -43,11 +40,13 @@ function WorkInfo({ title, description, url, image }: WorkInfoProps) {
     >
       {image && (
         <Image
-          src={urlFor(image).url()}
+          src={sanityImage?.src}
+          className="object-cover w-full"
+          fill
+          placeholder="blur"
+          blurDataURL={image?.asset?.metadata?.lqip}
           alt={title}
-          layout="fill"
-          objectFit="cover"
-          priority
+          priority={true}
         />
       )}
       <div

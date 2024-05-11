@@ -2,12 +2,13 @@ const workFields = `
   _id,
   title,
   description,
-  image,
-  url,
-  order
+  image {
+    asset->,
+  },
+  url
 `
 
 export const workQuery = `
-*[_type == "work"] | order(order asc) {
+*[_type == "work"] | order(orderRank) {
   ${workFields}
 }`

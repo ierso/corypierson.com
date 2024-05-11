@@ -2,6 +2,7 @@
 
 module.exports = {
   content: [
+    './app/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
@@ -13,7 +14,7 @@ module.exports = {
     function ({ addBase }) {
       addBase({
         html: {
-          fontFamily: '"IBM Plex Sans", sans-serif',
+          fontFamily: { sans: ['var(--font-ibm)'] },
         },
       })
     },
