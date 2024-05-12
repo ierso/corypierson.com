@@ -1,14 +1,30 @@
 import '../styles/globals.css'
 
-import { AppProvider } from 'providers/app'
-import { IBM_Plex_Sans } from 'next/font/google'
 import { Layout } from '@components/Layout'
+import { Metadata } from 'next'
+import { IBM_Plex_Sans } from 'next/font/google'
+import { AppProvider } from 'providers/app'
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-ibm',
 })
+
+export const metadata: Metadata = {
+  title: 'Cory Pierson',
+  description:
+    'Cory Pierson is a senior front end engineer based in New Jersey focusing on development with modern front end technologies and practices.',
+  keywords: [
+    'TypeScript',
+    'JavaScript',
+    'React',
+    'Next.js',
+    'GraphQL',
+    'HTML',
+    'CSS',
+  ],
+}
 
 export default function RootLayout({
   children,
