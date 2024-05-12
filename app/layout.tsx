@@ -1,12 +1,8 @@
-'use client'
-
 import '../styles/globals.css'
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-
+import { AppProvider } from 'providers/app'
 import { IBM_Plex_Sans } from 'next/font/google'
 import { Layout } from '@components/Layout'
-import { ThemeProvider } from 'next-themes'
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin'],
@@ -19,19 +15,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const queryClient = new QueryClient()
-
   return (
     <html lang="en">
       <body
         className={`${ibmPlexSans.variable} font-sans transition-colors duration-250 bg-gray-50 dark:bg-gray-900`}
       >
         <main>
-          <QueryClientProvider client={queryClient}>
-            <ThemeProvider attribute="class">
-              <Layout>{children}</Layout>
-            </ThemeProvider>
-          </QueryClientProvider>
+          <AppProvider>
+            <Layout>{children}</Layout>
+          </AppProvider>
         </main>
       </body>
     </html>

@@ -1,7 +1,7 @@
-import { ReactNode } from 'react'
 import { About } from '@components/About'
 import { Contact } from '@components/Contact'
 import { ThemeToggle } from '@components/ThemeToggle'
+import { ReactNode } from 'react'
 
 type LayoutProps = {
   children?: ReactNode
@@ -23,7 +23,10 @@ export function Layout({ children }: LayoutProps) {
           <div className="px-8 pt-10 pb-20 md:mt-20">
             {children}
             <div className="mt-10">
-              <Contact />
+              <h2 className="text-2xl font-bold">Contact me</h2>
+              <div className="mt-6">
+                <Contact />
+              </div>
             </div>
           </div>
         </section>
