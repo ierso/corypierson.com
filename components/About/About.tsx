@@ -5,11 +5,8 @@ export function About() {
         Cory Pierson
       </h1>
       <p className="mt-4 text-gray-600 dark:text-gray-400">
-        I build, maintain, and troubleshoot all things web. I currently work at{' '}
-        <span className="font-semibold text-gray-700 dark:text-white">
-          Fisker Inc.
-        </span>{' '}
-        as a Senior Front End Software Engineer.
+        Senior Front End Engineer | Proficient in React, JavaScript, and CSS |
+        Enhancing User Experiences through Collaboration
       </p>
       <ul className="flex gap-3 mt-4">
         <li>
