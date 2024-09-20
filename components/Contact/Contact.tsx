@@ -22,8 +22,8 @@ export function Contact() {
   } = useForm<FormProps>({ resolver: zodResolver(formSchema) })
 
   const fetcher = async (formData: FormProps) => {
-    return fetch('/api/mail', {
-      method: 'post',
+    return fetch('/api/send', {
+      method: 'POST',
       body: JSON.stringify(formData),
     })
   }
